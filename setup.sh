@@ -10,7 +10,8 @@ for file in $files; do
   ln -sf $dir/$file ~/$file
 done
 
-cp $dir/com.googlecode.iterm2.plist ~/com.googlecode.iterm2.plist
+echo "Copying iterm config"
+cp $dir/com.googlecode.iterm2.plist ${HOME}/Library/Application\ Support/iTerm
 
 # Secret env variables
 if [ -f .secrets ]; then
