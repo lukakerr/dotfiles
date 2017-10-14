@@ -10,6 +10,8 @@ for file in $files; do
   ln -sf $dir/$file ~/$file
 done
 
+cp $dir/com.googlecode.iterm2.plist ~/com.googlecode.iterm2.plist
+
 # Secret env variables
 if [ -f .secrets ]; then
   ln -sf $dir/".secrets" ~/".secrets"
