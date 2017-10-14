@@ -18,4 +18,18 @@ if [ -f .secrets ]; then
   ln -sf $dir/".secrets" ~/".secrets"
 fi
 
+# Brew install
+printf "\n"
+read -p "Install all brew packages? [y/n]: " -n 1 -r
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+  printf "\n\n"
+  echo "Installing packages with brew"
+  echo "This may take a while"
+  printf "\n"
+  sh ./brew/install.sh
+  printf "\n"
+  echo "Done!"
+fi
+
 source ~/.bash_profile
