@@ -3,6 +3,11 @@ alias pg_start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/ser
 alias pg_stop="pg_ctl -D /usr/local/var/postgres stop"
 alias mongod="ulimit -n 4096 && mongod"
 
+# Git
+alias gs="git status"
+alias gc="git checkout ."
+alias gb="git branch"
+
 export CLICOLOR=1
 export LSCOLORS=BxFxCxDxBxegedabagaced # For dark background
 

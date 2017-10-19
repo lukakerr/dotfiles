@@ -13,4 +13,3 @@ If this folder doesn't exist, create it and run `./setup.sh` again
 <div style="text-align:center">
 	<img src="https://i.imgur.com/l4yD5jH.png">
 </div>
-
