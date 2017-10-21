@@ -8,6 +8,13 @@ alias gs="git status"
 alias gc="git checkout ."
 alias gb="git branch"
 
+# Xcode
+alias xc-rm="""
+rm -rf ${HOME}/Library/Developer/Xcode/DerivedData 
+rm -rf ${HOME}/Library/Developer/Xcode/Archives 
+rm -rf ${HOME}/Library/Developer/Xcode/Products
+"""
+
 export CLICOLOR=1
 export LSCOLORS=BxFxCxDxBxegedabagaced # For dark background
 
