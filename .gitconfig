@@ -2,6 +2,7 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	required = true
+	process = git-lfs filter-process
 [user]
 	name = lukakerr
 	email = lukakerr1@gmail.com

@@ -1,6 +1,6 @@
 alias tu="sudo sysctl debug.lowpri_throttle_enabled=0"
-alias pg_start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
-alias pg_stop="pg_ctl -D /usr/local/var/postgres stop"
+alias pgup="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
+alias pgdown="pg_ctl -D /usr/local/var/postgres stop"
 alias mongod="ulimit -n 4096 && mongod"
 
 # Git
@@ -57,12 +57,22 @@ function up() {
 	cd $d
 }
 
+function powup() {
+	launchctl load ~/Library/LaunchAgents/cx.pow.powd.plist
+	sudo launchctl load /Library/LaunchDaemons/cx.pow.firewall.plist
+}
+
+function powdown() {
+	launchctl unload ~/Library/LaunchAgents/cx.pow.powd.plist
+	sudo launchctl unload /Library/LaunchDaemons/cx.pow.firewall.plist
+}
+
 [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # AVN
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # NVM
-
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
 
 if [ -f .secrets ]; then
 	source .secrets
 fi
+
+# RVM
+source ~/.rvm/scripts/rvm
