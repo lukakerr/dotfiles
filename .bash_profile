@@ -1,5 +1,5 @@
-source .aliases
-source .functions
+source ~/.aliases
+source ~/.functions
 
 if [ -f .secrets ]; then
 	source .secrets
@@ -30,4 +30,5 @@ export PATH="$HOME/.npm-packages/bin:$PATH"
 [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # AVN
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # NVM
 [[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh  # This loads NVM
+
 source ~/.rvm/scripts/rvm # RVM
