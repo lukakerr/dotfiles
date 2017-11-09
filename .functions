@@ -1,0 +1,25 @@
+# Goes up a certain amount of directories
+# Usage: up 2
+function up() {
+  local d=""
+  limit=$1
+  for ((i=1 ; i <= limit ; i++))
+    do
+      d=$d/..
+    done
+  d=$(echo $d | sed 's/^\///')
+  if [ -z "$d" ]; then
+    d=..
+  fi
+  cd $d
+}
+
+function powup() {
+  launchctl load ~/Library/LaunchAgents/cx.pow.powd.plist
+  sudo launchctl load /Library/LaunchDaemons/cx.pow.firewall.plist
+}
+
+function powdown() {
+  launchctl unload ~/Library/LaunchAgents/cx.pow.powd.plist
+  sudo launchctl unload /Library/LaunchDaemons/cx.pow.firewall.plist
+}

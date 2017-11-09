@@ -1,0 +1,22 @@
+alias tu="sudo sysctl debug.lowpri_throttle_enabled=0"
+alias c='clear'
+
+# PostgreSQL
+alias pgup="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
+alias pgdown="pg_ctl -D /usr/local/var/postgres stop"
+
+# MongoDB
+alias mongod="ulimit -n 4096 && mongod"
+
+# Git
+alias gs="git status"
+alias gc="git checkout ."
+alias gb="git branch"
+alias gl="git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
+# Xcode
+alias xc-rm="""
+rm -rf ${HOME}/Library/Developer/Xcode/DerivedData 
+rm -rf ${HOME}/Library/Developer/Xcode/Archives 
+rm -rf ${HOME}/Library/Developer/Xcode/Products
+"""
