@@ -19,5 +19,5 @@ When you run `./setup.sh`, the `.secrets` file will be sourced, and the environm
 </div>
 
 <div style="text-align:center">
-	<img src="https://i.imgur.com/l4yD5jH.png">
+  <img src="https://i.imgur.com/JN1INGV.png">
 </div>
