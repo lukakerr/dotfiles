@@ -2,6 +2,12 @@
 
 Run `./setup.sh` to setup.
 
+You will be able to choose what to install through `y/n` prompts as shown below.
+
+<div style="text-align:center">
+  <img src="https://i.imgur.com/MtdPu9I.png">
+</div>
+
 ### iTerm 2
 
 For iTerm2 configuration, under Preferences -> General, check "Load preferences from a custom folder or URL", and set the folder to ~/Library/Application Support/iTerm.
