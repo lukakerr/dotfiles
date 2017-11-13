@@ -1,5 +1,6 @@
 alias tu="sudo sysctl debug.lowpri_throttle_enabled=0"
-alias c='clear'
+alias c="clear"
+alias lsa="ls -aF"
 
 # PostgreSQL
 alias pgup="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
@@ -7,6 +8,9 @@ alias pgdown="pg_ctl -D /usr/local/var/postgres stop"
 
 # MongoDB
 alias mongod="ulimit -n 4096 && mongod"
+
+# Rails
+alias rlog="tail -f log/development.log"
 
 # Git
 alias gs="git status"
