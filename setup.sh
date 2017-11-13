@@ -2,6 +2,7 @@
 
 dir="$(pwd)"
 files=".bash_profile .config/nvim .hushlogin .inputrc .railsrc .vim .vimrc .functions .aliases .spacemacs"
+binaries="colortest"
 
 cd $dir
 
@@ -10,8 +11,17 @@ for file in $files; do
   ln -sf $dir/$file ~/$file
 done
 
-echo "Copying iterm config"
-cp $dir/iterm/com.googlecode.iterm2.plist ${HOME}/Library/Application\ Support/iTerm
+# iterm install
+printf "\n"
+read -p "Install iTerm2 theme? [y/n]: " -n 1 -r
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+  printf "\n"
+  echo "Copying iterm config"
+  printf "\n"
+  cp $dir/iterm/com.googlecode.iterm2.plist ${HOME}/Library/Application\ Support/iTerm
+else
+  printf "\n"
+fi
 
 # Secret env variables
 if [ -f .secrets ]; then
@@ -22,7 +32,7 @@ if [ -f .gitconfig ]; then
   ln -sf $dir/".gitconfig" ~/".gitconfig"
 fi
 
-# Brew install
+# brew install
 printf "\n"
 read -p "Install all brew packages? [y/n]: " -n 1 -r
 if [[ $REPLY =~ ^[Yy]$ ]]; then
@@ -33,6 +43,21 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   sh ./brew/install.sh
   printf "\n"
   echo "Done!"
+else
+  printf "\n"
+fi
+
+# bin install
+printf "\n"
+read -p "Install binaries to /usr/local/bin? [y/n]: " -n 1 -r
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+  printf "\n"
+  echo "Installing binaries"
+  printf "\n"
+  for bin in $binaries; do
+    echo "Linking $dir/bin/$bin to /usr/local/bin/$bin."
+    ln -sf $dir/bin/$bin /usr/local/bin/$bin
+  done
 else
   printf "\n"
 fi

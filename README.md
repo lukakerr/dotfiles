@@ -16,7 +16,6 @@ If you have environment variables you want to use, such as a database password, 
 
 When you run `./setup.sh`, the `.secrets` file will be sourced, and the environment variables will be available.
 
-
 #### iTerm2 Default Profile
 
 <div style="text-align:center">
