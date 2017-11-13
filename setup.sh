@@ -47,6 +47,20 @@ else
   printf "\n"
 fi
 
+# macos configure.sh
+if [ "$(uname)" == "Darwin" ]; then
+  printf "\n"
+  read -p "Set macOS defaults from macos/configure.sh? [y/n]: " -n 1 -r
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
+    printf "\n"
+    echo "Setting defaults, some programs (Finder, Dock etc) may restart on completion"
+    printf "\n"
+    sh ./macos/configure.sh
+  else
+    printf "\n"
+  fi
+fi
+
 # bin install
 printf "\n"
 read -p "Install binaries to /usr/local/bin? [y/n]: " -n 1 -r
