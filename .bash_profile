@@ -1,4 +1,4 @@
-printf -- $'\033]6;1;bg;red;brightness;70\a\033]6;1;bg;green;brightness;70\a\033]6;1;bg;blue;brightness;70\a'
+# printf -- $'\033]6;1;bg;red;brightness;70\a\033]6;1;bg;green;brightness;70\a\033]6;1;bg;blue;brightness;70\a'
 
 source ~/.aliases
 source ~/.functions

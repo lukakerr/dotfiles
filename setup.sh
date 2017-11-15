@@ -1,7 +1,7 @@
 #!/bin/bash
 
 dir="$(pwd)"
-files=".bash_profile .config/nvim .hushlogin .inputrc .railsrc .vim .vimrc .functions .aliases .spacemacs"
+files=".bash_profile .config/nvim .hushlogin .inputrc .railsrc .vim .vimrc .functions .aliases .spacemacs .bashrc"
 binaries="colortest"
 
 cd $dir
