@@ -4,7 +4,7 @@ source ~/.aliases
 source ~/.functions
 
 if [ -f .secrets ]; then
-	source .secrets
+  source .secrets
 fi
 
 export CLICOLOR=1
@@ -36,7 +36,13 @@ export PS2="\[${COLOR3}\]❯\[\033[m\] " # Secondary prompt
 
 export PATH="$HOME/.npm-packages/bin:$PATH"
 [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # AVN
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # NVM
-[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh  # This loads NVM
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+
+# Go
+export GOROOT=/usr/local/opt/go/libexec
+export GOPATH=$HOME/.go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 source ~/.rvm/scripts/rvm # RVM

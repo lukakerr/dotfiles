@@ -14,12 +14,21 @@ function up() {
   cd $d
 }
 
+# Start Pow.cx
 function powup() {
   launchctl load ~/Library/LaunchAgents/cx.pow.powd.plist
   sudo launchctl load /Library/LaunchDaemons/cx.pow.firewall.plist
 }
 
+# Stop Pow.cx
 function powdown() {
   launchctl unload ~/Library/LaunchAgents/cx.pow.powd.plist
   sudo launchctl unload /Library/LaunchDaemons/cx.pow.firewall.plist
+}
+
+# Branch diffs in Kaleidoscope
+# Provide two branches e.g: gd master develop
+# Or leave empty to diff current branch
+function gd() {
+  git difftool $1 $2 -y -t Kaleidoscope
 }
