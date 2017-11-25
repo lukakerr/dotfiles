@@ -32,3 +32,11 @@ function powdown() {
 function gd() {
   git difftool $1 $2 -y -t Kaleidoscope
 }
+
+function gc() {
+  git commit -am "$1"
+}
+
+function ga() {
+  git add --all
+}

@@ -28,17 +28,20 @@ COLOR5="\[\033[01;38;5;202m\]"
 
 PS1="${COLOR5}\w"
 PS1+="${COLOR4}\$(git_branch) ${COLOR1}"
-PS1+="❯${COLOR2}❯${COLOR3}❯"; # Working directory full path
-PS1+="${WHITE} ${RESET}"; # Reset
+PS1+="❯${COLOR2}❯${COLOR3}❯";
+PS1+="${WHITE} ${RESET}";
 
 export PS1;
-export PS2="\[${COLOR3}\]❯\[\033[m\] " # Secondary prompt
+export PS2="\[${COLOR3}\]❯\[\033[m\] "
 
+# AVN
 export PATH="$HOME/.npm-packages/bin:$PATH"
-[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # AVN
+[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh"
+
+# NVM
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # NVM
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 # Go
 export GOROOT=/usr/local/opt/go/libexec

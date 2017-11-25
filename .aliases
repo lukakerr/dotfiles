@@ -1,6 +1,7 @@
 alias tu="sudo sysctl debug.lowpri_throttle_enabled=0"
 alias c="clear"
 alias lsa="ls -aF"
+alias sb="source ~/.bash_profile"
 
 # PostgreSQL
 alias pgup="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
