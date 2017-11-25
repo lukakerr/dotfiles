@@ -33,10 +33,10 @@ function gd() {
   git difftool $1 $2 -y -t Kaleidoscope
 }
 
-function gc() {
-  git commit -am "$1"
-}
-
+# Git all in one
+branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
 function ga() {
   git add --all
+  git commit -m "$1"
+  git push origin $branch
 }
