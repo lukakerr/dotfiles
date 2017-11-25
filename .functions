@@ -34,7 +34,7 @@ function gd() {
 }
 
 # Git all in one
-branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
+branch=$(git branch 2> /dev/null | sed -e 's/^\* \(.*\)/\1/p')
 function ga() {
   git add --all
   git commit -m "$1"
