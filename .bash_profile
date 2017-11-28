@@ -1,4 +1,7 @@
+# Lighter iTerm theme
 # printf -- $'\033]6;1;bg;red;brightness;70\a\033]6;1;bg;green;brightness;70\a\033]6;1;bg;blue;brightness;70\a'
+# Nord iTerm theme
+printf -- $'\033]6;1;bg;red;brightness;46\a\033]6;1;bg;green;brightness;52\a\033]6;1;bg;blue;brightness;64\a'
 
 source ~/.aliases
 source ~/.functions
@@ -20,15 +23,23 @@ git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
+# Default iTerm theme
 COLOR1="\[\033[01;38;5;166m\]"
 COLOR2="\[\033[01;38;5;167m\]"
 COLOR3="\[\033[01;38;5;168m\]"
 COLOR4="\[\033[01;38;5;172m\]"
 COLOR5="\[\033[01;38;5;202m\]"
 
-PS1="${COLOR5}\w"
-PS1+="${COLOR4}\$(git_branch) ${COLOR1}"
-PS1+="❯${COLOR2}❯${COLOR3}❯";
+# Nord iTerm theme
+NORD1="\[\033[30m\]"
+NORD2="\[\033[34m\]"
+NORD3="\[\033[36m\]"
+NORD4="\[\033[1;30m\]"
+NORD5="\[\033[1;30m\]"
+
+PS1="${NORD5}\w"
+PS1+="${NORD4}\$(git_branch) ${NORD1}"
+PS1+="❯${NORD2}❯${NORD3}❯";
 PS1+="${WHITE} ${RESET}";
 
 export PS1;
