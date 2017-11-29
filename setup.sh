@@ -76,4 +76,10 @@ else
   printf "\n"
 fi
 
+# vim plugins install
+printf "\n"
+echo "Installing vim plugins"
+printf "\n"
+sh ./vim/install.sh
+
 source ~/.bash_profile
