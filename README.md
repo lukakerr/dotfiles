@@ -47,3 +47,11 @@ When you run `./setup.sh`, the `.secrets` file will be sourced, and the environm
 <div style="text-align:center">
   <img src="https://i.imgur.com/6AwricJ.png">
 </div>
+
+#### Sublime Text
+
+I've created a custom theme for sublime text called [material-nord](https://github.com/lukakerr/material-nord).
+
+<div style="text-align:center">
+  <img src="https://i.imgur.com/0dnXiui.png">
+</div>
