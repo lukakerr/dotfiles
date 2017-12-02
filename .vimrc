@@ -8,6 +8,8 @@ call plug#end()
 
 " pathogen
 execute pathogen#infect()
+syntax enable
+filetype plugin indent on
 
 " nord colour scheme
 colorscheme nord
@@ -21,3 +23,9 @@ let g:gitgutter_realtime = 1
 
 " nord uniform status lines
 let g:nord_uniform_status_lines = 1
+
+" line numbers
+set number
+
+" nerdtree
+nnoremap <C-n> :NERDTreeToggle<CR>
