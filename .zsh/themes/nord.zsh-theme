@@ -12,8 +12,8 @@ RED=$'\e[1;31m'
 GREEN=$'\e[1;32m'
 RESET=$'\e[0;m'
 
-# Wrap prompt in chpwd function
-# Only way that works to check if git repo on every cd
+# Wrap prompt in precmd function
+# Only way that works to check if git repo after every entered command
 function precmd() {
   PS1=%{$NORD5%}
   PS1+=%~
