@@ -14,7 +14,7 @@ RESET=$'\e[0;m'
 
 # Wrap prompt in chpwd function
 # Only way that works to check if git repo on every cd
-function chpwd() {
+function precmd() {
   PS1=%{$NORD5%}
   PS1+=%~
 
@@ -41,4 +41,4 @@ PS2+=' '
 export PS1;
 export PS2;
 
-chpwd
+precmd
