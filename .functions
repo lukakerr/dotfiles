@@ -40,3 +40,13 @@ function ga() {
   git commit -m "$1"
   git push origin $branch
 }
+
+# Delete local branch
+function gdb() {
+  git branch -d $1
+}
+
+# Delete remote branch
+function gdrb() {
+  git push origin --delete $1
+}
