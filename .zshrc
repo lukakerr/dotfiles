@@ -33,6 +33,9 @@ export GOROOT=/usr/local/opt/go/libexec
 export GOPATH=$HOME/.go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
+# Cargo
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # RVM
 source ~/.rvm/scripts/rvm
 

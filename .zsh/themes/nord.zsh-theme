@@ -14,24 +14,27 @@ RESET=$'\e[0;m'
 
 # Wrap prompt in precmd function
 # Only way that works to check if git repo after every entered command
+PS1=%{$NORD5%}
+PS1+=%~
+PS1+=" "
 function precmd() {
-  PS1=%{$NORD5%}
-  PS1+=%~
-
-  # If there are uncommitted git changes, git branch is red, else green
-  if git rev-parse --git-dir > /dev/null 2>&1; then
-    if [[ `git status --porcelain` ]]; then
-      PS1+=%{$RED%}
+  if git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
+    RPROMPT=%{$NORD5%}
+    RPROMPT+=" ::"
+    if [[ `git ls-files --others --exclude-standard` ]]; then
+      RPROMPT+=%{$RED%}
     else
-      PS1+=%{$GREEN%}
+      RPROMPT+=%{$GREEN%}
     fi
+
+    RPROMPT+="\$(git_branch)"
+    RPROMPT+=%{$RESET%}
   fi
-  PS1+="\$(git_branch) "
-  PS1+=%{$NORD3%}
-  PS1+="➔"
-  PS1+=%{$WHITE%}%{$RESET%}
-  PS1+=' '
 }
+
+PS1+=%{$NORD3%}
+PS1+="➔ "
+PS1+=%{$WHITE%}%{$RESET%}
 
 PS2=%{$NORD3%}
 PS2+='❯'
@@ -40,5 +43,3 @@ PS2+=' '
 
 export PS1;
 export PS2;
-
-precmd
