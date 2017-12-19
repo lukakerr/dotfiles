@@ -19,7 +19,7 @@ PS1+=%~
 PS1+=" "
 function precmd() {
   if git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
-    if [[ `git ls-files --others` ]]; then
+    if [[ `git status --porcelain --ignore-submodules -unormal` ]]; then
       RPROMPT=%{$NORD3%}
       RPROMPT+="⇡"
       RPROMPT+=%{$NORD5%}
