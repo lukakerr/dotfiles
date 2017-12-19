@@ -19,12 +19,14 @@ PS1+=%~
 PS1+=" "
 function precmd() {
   if git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
-    RPROMPT=%{$NORD5%}
-    RPROMPT+=" ::"
-    if [[ `git ls-files --others --exclude-standard` ]]; then
+    if [[ `git ls-files --others` ]]; then
+      RPROMPT=%{$NORD3%}
+      RPROMPT+="⇡"
+      RPROMPT+=%{$NORD5%}
+      RPROMPT+=" ::"
       RPROMPT+=%{$RED%}
     else
-      RPROMPT+=%{$GREEN%}
+      RPROMPT=%{$GREEN%}
     fi
 
     RPROMPT+="\$(git_branch)"
