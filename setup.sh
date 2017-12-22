@@ -77,7 +77,7 @@ else
   printf "\n"
 fi
 
-vim plugins install
+# vim plugins install
 printf "\n"
 echo "Installing vim plugins"
 printf "\n"

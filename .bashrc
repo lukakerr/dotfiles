@@ -1,7 +1,7 @@
 # Lighter iTerm theme
 # printf -- $'\033]6;1;bg;red;brightness;70\a\033]6;1;bg;green;brightness;70\a\033]6;1;bg;blue;brightness;70\a'
 # Nord iTerm theme
-printf -- $'\033]6;1;bg;red;brightness;46\a\033]6;1;bg;green;brightness;52\a\033]6;1;bg;blue;brightness;64\a'
+# printf -- $'\033]6;1;bg;red;brightness;46\a\033]6;1;bg;green;brightness;52\a\033]6;1;bg;blue;brightness;64\a'
 
 source ~/.aliases
 source ~/.functions
@@ -39,7 +39,7 @@ NORD5="\[\033[1;30m\]"
 
 PS1="${NORD5}\w"
 PS1+="${NORD4}\$(git_branch) ${NORD1}"
-PS1+="❯${NORD2}❯${NORD3}❯";
+PS1+="${NORD3}➔ ";
 PS1+="${WHITE} ${RESET}";
 
 export PS1;

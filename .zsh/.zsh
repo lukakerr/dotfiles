@@ -1,1 +1,0 @@
-/Users/Luka/dev/dotfiles/.zsh

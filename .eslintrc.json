@@ -31,7 +31,11 @@
     "sourceType": "module"
   }, 
 
-  "extends": "airbnb"
+  "extends": "airbnb", 
+
+  "rules": {
+    "no-param-reassign": 0
+  }
 }
 
 // https://eslint.org/docs/rules/
