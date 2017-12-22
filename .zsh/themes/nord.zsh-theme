@@ -28,10 +28,11 @@ function precmd() {
     else
       RPROMPT=%{$GREEN%}
     fi
-
-    RPROMPT+="\$(git_branch)"
-    RPROMPT+=%{$RESET%}
+  else
+    RPROMPT=''
   fi
+  RPROMPT+="\$(git_branch)"
+  RPROMPT+=%{$RESET%}
 }
 
 PS1+=%{$NORD3%}

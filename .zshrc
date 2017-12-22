@@ -45,7 +45,8 @@ source ~/.rvm/scripts/rvm
 DISABLE_AUTO_TITLE="true"
 
 # Enable command auto correction
-ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="false"
+unsetopt correct_all
 
 plugins=(
   npm

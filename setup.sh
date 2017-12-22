@@ -1,8 +1,8 @@
 #!/bin/bash
 
 dir="$(pwd)"
-files=".bash_profile .hushlogin .inputrc .railsrc .vim .vimrc .functions .aliases .spacemacs .bashrc .zshrc .zsh"
-binaries="colortest"
+files=".bash_profile .hushlogin .inputrc .railsrc .vim .vimrc .functions .aliases .spacemacs .bashrc .zshrc .zsh .zprofile .eslintrc.json"
+binaries="colortest.sh rdh.sh"
 
 cd $dir
 
@@ -69,17 +69,18 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   echo "Installing binaries"
   printf "\n"
   for bin in $binaries; do
-    echo "Linking $dir/bin/$bin to /usr/local/bin/$bin."
-    ln -sf $dir/bin/$bin /usr/local/bin/$bin
+    new_bin=${bin%.*}
+    echo "Linking $dir/bin/$bin to /usr/local/bin/$new_bin"
+    ln -sf $dir/bin/$bin /usr/local/bin/$new_bin
   done
 else
   printf "\n"
 fi
 
-# vim plugins install
+vim plugins install
 printf "\n"
 echo "Installing vim plugins"
 printf "\n"
 sh ./vim/install.sh
 
-source ~/.bash_profile
+source ~/.zshrc

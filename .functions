@@ -43,7 +43,7 @@ function ga() {
 
 # Delete local branch
 function gdb() {
-  git branch -d $1
+  git branch -D $1
 }
 
 # Delete remote branch
