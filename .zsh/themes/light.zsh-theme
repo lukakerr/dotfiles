@@ -6,7 +6,7 @@ NORD1=$'\e[0;30m'
 NORD2=$'\e[0;34m'
 NORD3=$'\e[0;36m'
 NORD4=$'\e[1;30m'
-NORD5=$'\e[1;30m'
+NORD5=$'\e[2;30m'
 WHITE=$'\e[0;37m'
 RED=$'\e[1;31m'
 GREEN=$'\e[1;32m'
@@ -22,12 +22,9 @@ function precmd() {
   if git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
     if [[ `git status --porcelain --ignore-submodules -unormal` ]]; then
       RPROMPT=%{$NORD3%}
-      RPROMPT+="⇡"
-      RPROMPT+=%{$NORD5%}
-      RPROMPT+=" ::"
-      RPROMPT+=%{$RED%}
+      RPROMPT+="*"
     else
-      RPROMPT=%{$GREEN%}
+      RPROMPT=%{$NORD3%}
     fi
   else
     RPROMPT=''
@@ -37,7 +34,7 @@ function precmd() {
 }
 
 PS1+=%{$NORD3%}
-PS1+="➔ "
+PS1+="λ "
 PS1+=%{$WHITE%}%{$RESET%}
 
 PS2=%{$NORD3%}

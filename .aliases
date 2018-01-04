@@ -4,6 +4,14 @@ alias lsa="ls -aF"
 alias sb="source ~/.bash_profile"
 alias sz="source ~/.zshrc"
 
+# chunkwm
+alias chunk_start="brew services start crisidev/chunkwm/chunkwm"
+alias chunk_stop="brew services stop crisidev/chunkwm/chunkwm"
+alias chunk_restart="brew services restart chunkwm"
+alias khd_start="brew services start khd"
+alias khd_stop="brew services stop khd"
+alias khd_restart="brew services restart khd"
+
 # PostgreSQL
 alias pgup="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
 alias pgdown="pg_ctl -D /usr/local/var/postgres stop"
