@@ -18,23 +18,13 @@ If you have environment variables you want to use, such as a database password, 
 
 When you run `./setup.sh`, the `.secrets` file will be sourced, and the environment variables will be available.
 
-#### iTerm2 Default Profile
+#### Current Setup:
 
 <div style="text-align:center">
-	<img src="https://i.imgur.com/GUkeInO.png">
+  <img src="https://i.imgur.com/td4QJO1.jpg">
 </div>
 
-#### iTerm2 Lighter Profile
-
-<div style="text-align:center">
-  <img src="https://i.imgur.com/JN1INGV.png">
-</div>
-
-#### iTerm2 Nord Profile
-
-<div style="text-align:center">
-  <img src="https://i.imgur.com/uknpE4A.png">
-</div>
+### Nord Setup:
 
 #### Spacemacs (`dotspacemacs-themes '(nord)`)
 
