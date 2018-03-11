@@ -34,3 +34,7 @@ rm -rf ${HOME}/Library/Developer/Xcode/DerivedData
 rm -rf ${HOME}/Library/Developer/Xcode/Archives 
 rm -rf ${HOME}/Library/Developer/Xcode/Products
 """
+
+# Shortcuts
+alias unsw="cd ~/Documents/UNSW"
+alias d="cd ~/dev"
