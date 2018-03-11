@@ -36,5 +36,5 @@ rm -rf ${HOME}/Library/Developer/Xcode/Products
 """
 
 # Shortcuts
-alias unsw="cd ~/Documents/UNSW"
+alias unsw="cd ~/uni/UNSW"
 alias d="cd ~/dev"
