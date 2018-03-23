@@ -42,7 +42,10 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 # change directories without cd
 setopt auto_cd
 
+SAVEHIST=10
+HISTFILE=~/.zsh_history
+
 # zsh-autosuggestions
 source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-bindkey '>' autosuggest-accept
-bindkey '?' autosuggest-execute
+bindkey '≥' autosuggest-accept   # option >
+bindkey '÷' autosuggest-execute  # option ?
