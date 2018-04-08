@@ -50,3 +50,9 @@ function gdb() {
 function gdrb() {
   git push origin --delete $1
 }
+
+# Change git origin to ssh
+function git-ssh() {
+  REPO=$(basename `git rev-parse --show-toplevel`)
+  git remote set-url origin git@github.com:lukakerr/$REPO.git
+}
