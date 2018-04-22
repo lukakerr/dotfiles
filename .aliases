@@ -1,5 +1,5 @@
 alias tu="sudo sysctl debug.lowpri_throttle_enabled=0"
-alias c="clear"
+alias cl="clear"
 alias lsa="ls -aF"
 alias sb="source ~/.bash_profile"
 alias sz="source ~/.zshrc"

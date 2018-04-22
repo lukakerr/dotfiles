@@ -56,3 +56,12 @@ function git-ssh() {
   REPO=$(basename `git rev-parse --show-toplevel`)
   git remote set-url origin git@github.com:lukakerr/$REPO.git
 }
+
+# Edit given folder in sublime
+function e() {
+  subl `find ~ -type d -iname \*$1\* -maxdepth 3 -print -quit`
+}
+
+function c() {
+  cd `find ~ -type d -iname \*$1\* -maxdepth 5 -print -quit`
+}
