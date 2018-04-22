@@ -59,9 +59,10 @@ function git-ssh() {
 
 # Edit given folder in sublime
 function e() {
-  subl `find ~ -type d -iname \*$1\* -maxdepth 3 -print -quit`
+  subl `find ~ -type d -iname $1 -maxdepth 3 -not -path '*/\.*' -print -quit`
 }
 
+# cd into found directory
 function c() {
-  cd `find ~ -type d -iname \*$1\* -maxdepth 5 -print -quit`
+  cd `find ~ -type d -iname \*$1\* -maxdepth 5 -not -path '*/\.*' -print -quit`
 }
