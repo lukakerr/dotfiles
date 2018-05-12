@@ -1,17 +1,9 @@
-# Lighter iTerm theme
-# printf -- $'\033]6;1;bg;red;brightness;70\a\033]6;1;bg;green;brightness;70\a\033]6;1;bg;blue;brightness;70\a'
-# Nord iTerm theme
-# printf -- $'\033]6;1;bg;red;brightness;46\a\033]6;1;bg;green;brightness;52\a\033]6;1;bg;blue;brightness;64\a'
-
 source ~/.aliases
 source ~/.functions
 
 if [ -f .secrets ]; then
   source .secrets
 fi
-
-export CLICOLOR=1
-export LSCOLORS=BxFxCxDxBxegedabagaced # For dark background
 
 RED='\[\e[0;31m\]'
 GREEN='\[\e[0;32m\]'
@@ -39,28 +31,8 @@ NORD5="\[\033[1;30m\]"
 
 PS1="${NORD5}\w"
 PS1+="${NORD4}\$(git_branch) ${NORD1}"
-PS1+="${NORD3}➔ ";
+PS1+="${NORD3}λ";
 PS1+="${WHITE} ${RESET}";
 
 export PS1;
 export PS2="\[${COLOR3}\]❯\[\033[m\] "
-
-# AVN
-export PATH="$HOME/.npm-packages/bin:$PATH"
-[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh"
-
-# NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-
-# Go
-export GOROOT=/usr/local/opt/go/libexec
-export GOPATH=$HOME/.go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-
-# Cargo
-export PATH="$HOME/.cargo/bin:$PATH"
-
-# RVM
-source ~/.rvm/scripts/rvm

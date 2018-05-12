@@ -1,7 +1,7 @@
 #!/bin/bash
 
 dir="$(pwd)"
-files=".bash_profile .khdrc .chunkwmrc .hushlogin .inputrc .railsrc .vim .vimrc .functions .aliases .spacemacs .bashrc .zshrc .zsh .zprofile .eslintrc.json"
+files=".bash_profile .tmux.conf .khdrc .chunkwmrc .hushlogin .inputrc .railsrc .vim .vimrc .functions .aliases .spacemacs .bashrc .zshrc .zsh .zprofile .eslintrc.json"
 binaries="colortest.sh rdh.sh splash.sh"
 
 cd $dir

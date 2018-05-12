@@ -5,4 +5,6 @@
 .vim/bundle
 .vim/autoload
 .vim/colors
+.vim/pack
 .zsh/.zsh
+.DS_Store

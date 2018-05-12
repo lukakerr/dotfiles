@@ -42,9 +42,9 @@ function ga() {
 }
 
 # Delete local branch
-function gdb() {
-  git branch -D $1
-}
+#function gdb() {
+#  git branch -D $1
+#}
 
 # Delete remote branch
 function gdrb() {

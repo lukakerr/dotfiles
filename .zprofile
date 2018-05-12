@@ -5,3 +5,4 @@ export NVM_DIR="$HOME/.nvm"
 
 export PATH="$HOME/.npm-packages/bin:$PATH"
 export PATH="$HOME/.nvm:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
