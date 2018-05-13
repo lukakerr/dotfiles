@@ -1,20 +1,26 @@
 " vim-plug
 call plug#begin('~/.vim/plugged')
-  Plug 'arcticicestudio/nord-vim'
-"  Plug 'vim-airline/vim-airline'
-"  Plug 'vim-airline/vim-airline-themes'
-  Plug 'airblade/vim-gitgutter'
   Plug 'ayu-theme/ayu-vim'
+  Plug 'airblade/vim-gitgutter'
+  Plug 'arcticicestudio/nord-vim'
+  Plug 'jiangmiao/auto-pairs'
+  Plug 'kien/ctrlp.vim'
+  Plug 'scrooloose/nerdtree'
+  Plug 'leafgarland/typescript-vim'
+  Plug 'kchmck/vim-coffee-script'
+  Plug 'tpope/vim-fugitive'
+  Plug 'drmingdrmer/vim-syntax-markdown'
+  Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+  Plug 'scrooloose/nerdcommenter'
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf.vim'
+  Plug 'tpope/vim-surround'
   if has('nvim')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   endif
-  Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 call plug#end()
 
 let g:deoplete#enable_at_startup = 1
-
-" pathogen
-execute pathogen#infect()
 
 syntax enable
 filetype plugin indent on
@@ -25,24 +31,17 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 
-" let ayucolor='mirage'
-
 if has('nvim')
   if has('gui_vimr')
-    " one dark color scheme
     colorscheme onedark
   else
-    let ayucolor="light"
+    let ayucolor='light'
     colorscheme ayu
   endif
 else
-  " nord color scheme
   set background=dark
   colorscheme nord
 endif
-
-" let vim-airline know the powerline font is installed
-" let g:airline_powerline_fonts = 1
 
 " gitgutter set to realtime updating
 let g:gitgutter_realtime = 1
@@ -60,6 +59,7 @@ let NERDTreeMinimalUI=1
 " no swap file
 set noswapfile
 
+" only show statusline for >1 window
 set laststatus=1
 
 " get git information
@@ -78,7 +78,6 @@ set termguicolors
 
 if has('nvim')
   if has('gui_vimr')
-    " ruler at column 80
     set colorcolumn=80
   endif
 endif
@@ -98,6 +97,29 @@ let g:ale_sign_warning = '●'
 let g:ale_sign_error = '●'
 highlight ALEErrorSign guifg=#f07171 guibg=clear
 highlight ALEWarningSign guifg=#f29718 guibg=clear
+
+" nerdcommenter
+let g:NERDSpaceDelims =1
+
+" fzf
+map <S-p> :Files<CR>
+autocmd! FileType fzf
+autocmd  FileType fzf set laststatus=0 noshowmode noruler
+autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
 
 " function: display errors from Ale in statusline
 function! LinterStatus() abort
