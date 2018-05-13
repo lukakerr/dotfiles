@@ -8,12 +8,14 @@ call plug#begin('~/.vim/plugged')
   if has('nvim')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   endif
+  Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 call plug#end()
 
 let g:deoplete#enable_at_startup = 1
 
 " pathogen
 execute pathogen#infect()
+
 syntax enable
 filetype plugin indent on
 
@@ -53,12 +55,12 @@ set number
 
 " nerdtree
 nnoremap <C-n> :NERDTreeToggle<CR>
+let NERDTreeMinimalUI=1
 
 " no swap file
 set noswapfile
 
-set laststatus=2
-set statusline=%=%f\ %m
+set laststatus=1
 
 " get git information
 function! GitInfo()
@@ -82,9 +84,22 @@ if has('nvim')
 endif
 
 " transparent status line
-hi StatusLine ctermbg=none cterm=bold
+if has('nvim')
+  hi StatusLineNC guifg=#000 guibg=#f2f2f2 cterm=NONE gui=NONE
+  hi StatusLine guifg=#FFF guibg=#ed9366 cterm=NONE gui=NONE
+else
+  hi StatusLine ctermbg=none cterm=bold
+endif
 
-" Function: display errors from Ale in statusline
+" ale
+nmap <silent> <S-k> <Plug>(ale_previous_wrap)
+nmap <silent> <S-j> <Plug>(ale_next_wrap)
+let g:ale_sign_warning = '●'
+let g:ale_sign_error = '●'
+highlight ALEErrorSign guifg=#f07171 guibg=clear
+highlight ALEWarningSign guifg=#f29718 guibg=clear
+
+" function: display errors from Ale in statusline
 function! LinterStatus() abort
    let l:counts = ale#statusline#Count(bufnr(''))
    let l:all_errors = l:counts.error + l:counts.style_error
@@ -96,6 +111,34 @@ function! LinterStatus() abort
    \)
 endfunction
 
+" splits
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+set splitbelow
+set splitright
+
+let g:currentmode={
+  \ 'n'  : 'NORMAL',
+  \ 'v'  : 'VISUAL',
+  \ 's'  : 'SELECT',
+  \ 'i'  : 'INSERT',
+  \ 'c'  : 'COMMAND',
+  \ 'r'  : 'PROMPT',
+  \ 'rm' : 'MORE',
+  \ '!'  : 'SHELL',
+  \ 't'  : 'TERMINAL'
+\}
+
+" map mode letter to name
+function! ModeName()
+  return g:currentmode[mode()]
+endfunction
+
 " statusline
-set statusline+=\ %{LinterStatus()}
-set statusline+=%8*\ %{GitInfo()}
+"set statusline=%{ModeName()}             " mode name
+set statusline=\ %2t\ %y\ %m                 " filename, filytype, modified or not
+set statusline+=%=\ %{LinterStatus()}     " linter warning and error count
+set statusline+=\ %-8{GitInfo()}            " git branch
