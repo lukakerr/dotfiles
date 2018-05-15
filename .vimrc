@@ -20,86 +20,49 @@ call plug#begin('~/.vim/plugged')
   endif
 call plug#end()
 
-let g:deoplete#enable_at_startup = 1
+" splits
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 syntax enable
 filetype plugin indent on
 
-" use 2 spaces for a tab
-set tabstop=2
+set tabstop=2           " use 2 spaces for a tab
 set shiftwidth=2
 set softtabstop=2
 set expandtab
+set number              " line numbers
+set noswapfile          " no swap file
+set laststatus=2        " only show statusline for >1 window
+set guioptions=         " macvim remove scrollbars
+set termguicolors
+set splitbelow
+set splitright
+set showcmd
 
-if has('nvim')
-  if has('gui_vimr')
-    colorscheme onedark
-  else
-    let ayucolor='light'
-    colorscheme ayu
-  endif
-else
-  set background=dark
-  colorscheme nord
-endif
+" deoplete
+let g:deoplete#enable_at_startup = 1
 
 " gitgutter set to realtime updating
 let g:gitgutter_realtime = 1
 
-" nord uniform status lines
-let g:nord_uniform_status_lines = 1
-
-" line numbers
-set number
-
 " nerdtree
 nnoremap <C-n> :NERDTreeToggle<CR>
 let NERDTreeMinimalUI=1
+let NERDTreeShowHidden=1
 
-" no swap file
-set noswapfile
-
-" only show statusline for >1 window
-set laststatus=1
-
-" get git information
-function! GitInfo()
-  let git = fugitive#head()
-  if git != ''
-    return ' '.fugitive#head()
-  else
-    return ''
-endfunction
-
-" macvim remove scrollbars
-set guioptions=
-
-set termguicolors
-
-if has('nvim')
-  if has('gui_vimr')
-    set colorcolumn=80
-  endif
-endif
-
-" transparent status line
-if has('nvim')
-  hi StatusLineNC guifg=#000 guibg=#f2f2f2 cterm=NONE gui=NONE
-  hi StatusLine guifg=#FFF guibg=#ed9366 cterm=NONE gui=NONE
-else
-  hi StatusLine ctermbg=none cterm=bold
-endif
+" nerdcommenter
+let g:NERDSpaceDelims =1
 
 " ale
 nmap <silent> <S-k> <Plug>(ale_previous_wrap)
 nmap <silent> <S-j> <Plug>(ale_next_wrap)
 let g:ale_sign_warning = '●'
 let g:ale_sign_error = '●'
-highlight ALEErrorSign guifg=#f07171 guibg=clear
-highlight ALEWarningSign guifg=#f29718 guibg=clear
-
-" nerdcommenter
-let g:NERDSpaceDelims =1
+highlight ALEErrorSign guifg=#f07171 guibg=clearar=1 ctermbg=1
+highlight ALEWarningSign guifg=#f29718 guibg=clearfg=2 ctermbg=2
 
 " fzf
 map <S-p> :Files<CR>
@@ -133,14 +96,14 @@ function! LinterStatus() abort
    \)
 endfunction
 
-" splits
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
-set splitbelow
-set splitright
+" function: get git information
+function! GitInfo()
+  let git = fugitive#head()
+  if git != ''
+    return ' '.fugitive#head()
+  else
+    return ''
+endfunction
 
 let g:currentmode={
   \ 'n'  : 'NORMAL',
@@ -154,13 +117,26 @@ let g:currentmode={
   \ 't'  : 'TERMINAL'
 \}
 
-" map mode letter to name
+" function: map mode letter to name
 function! ModeName()
   return g:currentmode[mode()]
 endfunction
 
 " statusline
 "set statusline=%{ModeName()}             " mode name
-set statusline=\ %2t\ %y\ %m                 " filename, filytype, modified or not
+set statusline=\ %2t\ %y\ %m              " filename, filytype, modified or not
 set statusline+=%=\ %{LinterStatus()}     " linter warning and error count
-set statusline+=\ %-8{GitInfo()}            " git branch
+set statusline+=\ %-8{GitInfo()}          " git branch
+
+" overrides for themes
+if has('nvim')
+  if has('gui_vimr')
+    set colorcolumn=80
+    source ~/.vim/themes/onedark.vimrc
+  else
+    source ~/.vim/themes/gruvbox.vimrc
+    " source ~/.vim/themes/mirage_light.vimrc
+  endif
+else
+  source ~/.vim/themes/nord.vimrc
+endif

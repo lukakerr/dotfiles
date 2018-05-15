@@ -3,6 +3,8 @@ alias cl="clear"
 alias lsa="ls -aF"
 alias sb="source ~/.bash_profile"
 alias sz="source ~/.zshrc"
+alias j="jobs"
+alias n="nvim"
 
 # chunkwm
 alias chunk_start="brew services start crisidev/chunkwm/chunkwm"

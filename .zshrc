@@ -28,10 +28,11 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # RVM
-# source ~/.rvm/scripts/rvm
+source ~/.rvm/scripts/rvm
 
 # Theme
-source ~/.zsh/themes/light.zsh-theme
+# source ~/.zsh/themes/light.zsh-theme
+source ~/.zsh/themes/gruvbox.zsh-theme
 
 # Case insensitive autocompletion
 autoload -U compinit
