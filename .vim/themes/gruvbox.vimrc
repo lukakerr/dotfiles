@@ -15,6 +15,10 @@ hi GitGutterChange ctermbg=235 ctermfg=3
 hi GitGutterDelete ctermbg=235 ctermfg=1
 hi GitGutterChangeDelete ctermbg=235 ctermfg=5
 
+" ale
+hi link ALEErrorSign GruvboxRed
+hi link ALEWarningSign GruvboxYellow
+
 let g:NERDTreeStatusline = '%#NonText#'
 
 hi EndOfBuffer ctermfg=237 ctermbg=235
@@ -26,7 +30,7 @@ highlight User1 gui=NONE ctermfg=15
 
 set statusline=%=\ %2t\ %y\ %m
 set statusline+=\ %{LinterStatus()}
-set statusline+=\|\ %1*%-8{GitInfo()}%*
+set statusline+=\ %1*%-8{GitInfo()}%*
 set fillchars=vert:\ ,stl:\ ,stlnc:\ 
 set laststatus=2
 

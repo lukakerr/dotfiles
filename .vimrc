@@ -15,6 +15,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
   Plug 'tpope/vim-surround'
+  Plug 'lervag/vimtex'
   if has('nvim')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   endif
@@ -132,7 +133,7 @@ set statusline+=\ %-8{GitInfo()}          " git branch
 if has('nvim')
   if has('gui_vimr')
     set colorcolumn=80
-    source ~/.vim/themes/onedark.vimrc
+    source ~/.vim/themes/nord.vimrc
   else
     source ~/.vim/themes/gruvbox.vimrc
     " source ~/.vim/themes/mirage_light.vimrc

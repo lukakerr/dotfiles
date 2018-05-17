@@ -40,5 +40,3 @@ rm -rf ${HOME}/Library/Developer/Xcode/Products
 # Shortcuts
 alias u="cd ~/uni/UNSW/18s1"
 alias d="cd ~/dev"
-
-eval $(thefuck --alias)
