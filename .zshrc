@@ -1,4 +1,4 @@
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:/usr/local/texlive/2018/bin/x86_64-darwin:$PATH
 
 source ~/.aliases
 source ~/.functions

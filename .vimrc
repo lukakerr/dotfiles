@@ -30,6 +30,18 @@ nnoremap <C-H> <C-W><C-H>
 syntax enable
 filetype plugin indent on
 
+set wildmode=longest:full
+set wildmenu
+
+" ignore these files
+set wildignore=*.o,*.pyc
+
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
+
+set magic
 set tabstop=2           " use 2 spaces for a tab
 set shiftwidth=2
 set softtabstop=2
