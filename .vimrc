@@ -16,9 +16,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/fzf.vim'
   Plug 'tpope/vim-surround'
   Plug 'lervag/vimtex'
-  if has('nvim')
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  endif
+  Plug 'Valloric/YouCompleteMe'
 call plug#end()
 
 " splits
@@ -26,6 +24,8 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
 
 syntax enable
 filetype plugin indent on
@@ -54,9 +54,11 @@ set termguicolors
 set splitbelow
 set splitright
 set showcmd
+" set colorcolumn=80
+set textwidth=80
 
-" deoplete
-let g:deoplete#enable_at_startup = 1
+" map <Esc> to exit terminal mode
+tnoremap <Esc> <C-\><C-n>
 
 " gitgutter set to realtime updating
 let g:gitgutter_realtime = 1
@@ -144,7 +146,6 @@ set statusline+=\ %-8{GitInfo()}          " git branch
 " overrides for themes
 if has('nvim')
   if has('gui_vimr')
-    set colorcolumn=80
     source ~/.vim/themes/nord.vimrc
   else
     source ~/.vim/themes/gruvbox.vimrc

@@ -8,3 +8,5 @@
 .vim/pack
 .zsh/.zsh
 .DS_Store
+node_modules/
+gen/

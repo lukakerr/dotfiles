@@ -5,6 +5,8 @@ alias sb="source ~/.bash_profile"
 alias sz="source ~/.zshrc"
 alias j="jobs"
 alias n="nvim"
+alias vim="nvim"
+alias gdb="gdb -quiet"
 
 # chunkwm
 alias chunk_start="brew services start crisidev/chunkwm/chunkwm"

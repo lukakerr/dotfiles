@@ -66,3 +66,8 @@ function e() {
 function c() {
   cd `find ~ -type d -iname \*$1\* -maxdepth 5 -not -path '*/\.*' -print -quit`
 }
+
+# diff-so-fancy
+dif() {
+  git diff --no-index --color "$@" | diff-so-fancy
+}
