@@ -1,4 +1,4 @@
-export PATH=$HOME/bin:/usr/local/bin:/usr/local/texlive/2018/bin/x86_64-darwin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:/$HOME/.local/bin:/usr/local/texlive/2018/bin/x86_64-darwin:$PATH
 
 source ~/.aliases
 source ~/.functions
@@ -6,6 +6,13 @@ source ~/.functions
 if [ -f .secrets ]; then
   source .secrets
 fi
+
+# Hacky way to check if Alacritty is running
+# Both Terminal.app and iTerm.app set this var, Alacritty doesn't
+# if [ -z "$TERM_PROGRAM" ]; then
+#   tmux new-session
+#   clear
+# fi
 
 export CLICOLOR=1
 export LSCOLORS=BxFxCxDxBxegedabagaced # For dark background
@@ -31,8 +38,8 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # source ~/.rvm/scripts/rvm
 
 # Theme
-# source ~/.zsh/themes/light.zsh-theme
-source ~/.zsh/themes/gruvbox.zsh-theme
+source ~/.zsh/themes/surreal.zsh-theme
+# source ~/.zsh/themes/gruvbox.zsh-theme
 
 # Case insensitive autocompletion
 autoload -U compinit
@@ -52,5 +59,6 @@ HISTFILE=~/.zsh_history
 
 # zsh-autosuggestions
 source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=7"
 bindkey '≥' autosuggest-accept   # option >
 bindkey '÷' autosuggest-execute  # option ?

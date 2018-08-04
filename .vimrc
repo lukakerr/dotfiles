@@ -1,8 +1,6 @@
 " vim-plug
 call plug#begin('~/.vim/plugged')
-  Plug 'ayu-theme/ayu-vim'
   Plug 'airblade/vim-gitgutter'
-  Plug 'arcticicestudio/nord-vim'
   Plug 'jiangmiao/auto-pairs'
   Plug 'kien/ctrlp.vim'
   Plug 'scrooloose/nerdtree'
@@ -16,8 +14,53 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/fzf.vim'
   Plug 'tpope/vim-surround'
   Plug 'lervag/vimtex'
-  Plug 'Valloric/YouCompleteMe'
+  " Plug 'Valloric/YouCompleteMe'
+  Plug 'neovimhaskell/haskell-vim'
+  Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'chriskempson/base16-vim'
 call plug#end()
+
+
+" LanguageClient config
+set hidden
+
+" Automatically start language servers.
+let g:LanguageClient_autoStart = 1
+
+let g:LanguageClient_serverCommands = {
+  \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+  \ 'javascript': ['javascript-typescript-stdio'],
+  \ 'typescript': ['javascript-typescript-stdio'],
+  \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+  \ }
+
+let g:LanguageClient_diagnosticsDisplay = {
+  \1: {'name': 'Error', 'texthl': 'ALEError', 'signText': '●', 'signTexthl': 'ALEErrorSign',},
+  \2: {'name': 'Warning', 'texthl': 'ALEWarning', 'signText': '●', 'signTexthl': 'ALEWarningSign',},
+  \3: {'name': 'Information', 'texthl': 'ALEInfo', 'signText': '●', 'signTexthl': 'ALEInfoSign',},
+  \4: {'name': 'Hint', 'texthl': 'ALEInfo', 'signText': '●', 'signTexthl': 'ALEInfoSign',},
+  \}
+
+" LanguageClient mappings
+nnoremap <silent> gm :call LanguageClient_contextMenu()<CR>
+nnoremap <silent> gh :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> gr :call LanguageClient#textDocument_rename()<CR>
+nnoremap <silent> gp :call LanguageClient#textDocument_implementation()<CR>
+nnoremap <silent> gs :call LanguageClient#textDocument_documentSymbol()<CR>
+nnoremap <silent> ga :call LanguageClient#textDocument_codeAction()<CR>
+nnoremap <silent> gf :call LanguageClient#textDocument_formatting()<CR>
+
+let g:deoplete#enable_at_startup = 1
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+call deoplete#custom#source('LanguageClient',
+            \ 'min_pattern_length',
+            \ 2)
 
 " splits
 nnoremap <C-J> <C-W><C-J>
@@ -34,7 +77,7 @@ set wildmode=longest:full
 set wildmenu
 
 " ignore these files
-set wildignore=*.o,*.pyc
+set wildignore=*.o,*.pyc,*.class
 
 set noerrorbells
 set novisualbell
@@ -56,6 +99,7 @@ set splitright
 set showcmd
 " set colorcolumn=80
 set textwidth=80
+set shortmess+=F        " dont show file info on load
 
 " map <Esc> to exit terminal mode
 tnoremap <Esc> <C-\><C-n>
@@ -76,6 +120,7 @@ nmap <silent> <S-k> <Plug>(ale_previous_wrap)
 nmap <silent> <S-j> <Plug>(ale_next_wrap)
 let g:ale_sign_warning = '●'
 let g:ale_sign_error = '●'
+let g:ale_set_highlights = 0    " don't synax highlight errors/warnings
 highlight ALEErrorSign guifg=#f07171 guibg=clearar=1 ctermbg=1
 highlight ALEWarningSign guifg=#f29718 guibg=clearfg=2 ctermbg=2
 
@@ -138,19 +183,9 @@ function! ModeName()
 endfunction
 
 " statusline
-"set statusline=%{ModeName()}             " mode name
-set statusline=\ %2t\ %y\ %m              " filename, filytype, modified or not
+set statusline+=\ %2t\ %m                 " filename, filytype, modified or not
 set statusline+=%=\ %{LinterStatus()}     " linter warning and error count
 set statusline+=\ %-8{GitInfo()}          " git branch
 
-" overrides for themes
-if has('nvim')
-  if has('gui_vimr')
-    source ~/.vim/themes/nord.vimrc
-  else
-    source ~/.vim/themes/gruvbox.vimrc
-    " source ~/.vim/themes/mirage_light.vimrc
-  endif
-else
-  source ~/.vim/themes/nord.vimrc
-endif
+set background=light
+source ~/dev/dotfiles/themes/vim/ashes-light.vimrc

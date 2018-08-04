@@ -1,0 +1,30 @@
+# alacritty.yml
+# Name:       Base16 Ashes Dark
+# Author:     Jannik Siebert (https://github.com/janniks)
+#
+# Alacritty template by sivamahadevan
+
+colors:
+  primary:
+    background: '0x1C2023'
+    foreground: '0xADB3BA'
+
+  normal:
+    black:   '0x393F45'
+    red:     '0xC7AE95'
+    green:   '0x95C7AE'
+    yellow:  '0xAEC795'
+    blue:    '0xAE95C7'
+    magenta: '0xC79595'
+    cyan:    '0x95AEC7'
+    white:   '0xDFE2E5'
+
+  bright:
+    black:   '0x1C2023'
+    red:     '0xC7C795'
+    green:   '0x565E65'
+    yellow:  '0x747C84'
+    blue:    '0xADB3BA'
+    magenta: '0xC795AE'
+    cyan:    '0xC7CCD1'
+    white:   '0xF3F4F5'

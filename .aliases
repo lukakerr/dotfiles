@@ -1,6 +1,6 @@
 alias tu="sudo sysctl debug.lowpri_throttle_enabled=0"
 alias cl="clear"
-alias lsa="ls -aF"
+alias l="ls -FA"
 alias sb="source ~/.bash_profile"
 alias sz="source ~/.zshrc"
 alias j="jobs"
@@ -39,6 +39,11 @@ rm -rf ${HOME}/Library/Developer/Xcode/Archives
 rm -rf ${HOME}/Library/Developer/Xcode/Products
 """
 
+# Stack
+alias ghci="stack exec -- ghci"
+alias ghc="stack ghc"
+
 # Shortcuts
-alias u="cd ~/uni/UNSW/18s1"
+alias u="cd ~/uni/UNSW/18s2"
 alias d="cd ~/dev"
+alias o="cd ~/oss"

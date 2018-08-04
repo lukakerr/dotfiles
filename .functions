@@ -68,6 +68,16 @@ function c() {
 }
 
 # diff-so-fancy
-dif() {
+function dif() {
   git diff --no-index --color "$@" | diff-so-fancy
+}
+
+# tmux
+function tmk() {
+  tmux kill-session -t "$1"
+}
+
+# source RVM
+function srvm() {
+  source ~/.rvm/scripts/rvm
 }

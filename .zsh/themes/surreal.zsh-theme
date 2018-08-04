@@ -4,12 +4,12 @@ git_branch() {
 
 NORD1=$'\e[0;30m'
 NORD2=$'\e[0;34m'
-NORD3=$'\e[0;36m'
-NORD4=$'\e[1;30m'
-NORD5=$'\e[2;30m'
+NORD3=$'\e[0;32m'
+NORD4=$'\e[0;30m'
+NORD5=$'\e[0;37m'
 WHITE=$'\e[0;37m'
-RED=$'\e[1;31m'
-GREEN=$'\e[1;32m'
+RED=$'\e[0;31m'
+GREEN=$'\e[0;32m'
 RESET=$'\e[0;m'
 
 # Wrap prompt in precmd function
