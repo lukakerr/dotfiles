@@ -21,21 +21,7 @@ When you run `./setup.sh`, the `.secrets` file will be sourced, and the environm
 #### Current Setup:
 
 <div style="text-align:center">
-  <img src="https://i.imgur.com/td4QJO1.jpg">
-</div>
-
-### Nord Setup:
-
-#### Spacemacs (`dotspacemacs-themes '(nord)`)
-
-<div style="text-align:center">
-  <img src="https://i.imgur.com/sz4Mvvb.png">
-</div>
-
-#### Vim (`colorscheme nord`)
-
-<div style="text-align:center">
-  <img src="https://i.imgur.com/6AwricJ.png">
+  <img src="https://i.imgur.com/uMEr4Cv.jpg">
 </div>
 
 #### Sublime Text
