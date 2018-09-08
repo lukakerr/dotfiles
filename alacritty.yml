@@ -49,7 +49,7 @@ font:
   bold:
     family: PragmataPro
     # Style can be specified to pick a specific face.
-    style: Bold
+    style: Regular
 
   # The italic font face
   italic:
@@ -58,7 +58,7 @@ font:
     style: Italic
 
   # Point size of the font
-  size: 19.0
+  size: 18.0
 
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
@@ -87,7 +87,7 @@ render_timer: false
 
 # Use custom cursor colors. If true, display the cursor in the cursor.foreground
 # and cursor.background colors, otherwise invert the colors of the cursor.
-custom_cursor_colors: true 
+custom_cursor_colors: true
 
 # Colors (Tomorrow Night Bright)
 colors:
@@ -106,29 +106,28 @@ colors:
     cursor: '0x999999'
 
   primary:
-    background: '0xF3F4F5'
-    foreground: '0x565E65'
+    background: '0xfdf6e3'
+    foreground: '0x586e75'
 
-  # Normal colors
   normal:
-    black:   '0x1C2023'
-    red:     '0xC7AE95'
-    green:   '0x95C7AE'
-    yellow:  '0xAEC795'
-    blue:    '0xAE95C7'
-    magenta: '0xC795AE'
-    cyan:    '0x95AEC7'
-    white:   '0xC7CCD1'
+    black:   '0x002b36'
+    red:     '0xdc322f'
+    green:   '0x859900'
+    yellow:  '0xb58900'
+    blue:    '0x268bd2'
+    magenta: '0x6c71c4'
+    cyan:    '0x2aa198'
+    white:   '0x93a1a1'
 
   bright:
-    black:   '0x747C84'
-    red:     '0xC7C795'
-    green:   '0x393F45'
-    yellow:  '0x565E65'
-    blue:    '0xADB3BA'
-    magenta: '0xDFE2E5'
-    cyan:    '0xC79595'
-    white:   '0xF3F4F5'
+    black:   '0x657b83'
+    red:     '0xcb4b16'
+    green:   '0x073642'
+    yellow:  '0x586e75'
+    blue:    '0x839496'
+    magenta: '0xeee8d5'
+    cyan:    '0xd33682'
+    white:   '0xfdf6e3'
 
 
 # Visual Bell

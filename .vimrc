@@ -14,14 +14,14 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/fzf.vim'
   Plug 'tpope/vim-surround'
   Plug 'lervag/vimtex'
-  " Plug 'Valloric/YouCompleteMe'
   Plug 'neovimhaskell/haskell-vim'
   Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'chriskempson/base16-vim'
+  Plug 'chriskempson/base16-vim',
+  Plug 'altercation/vim-colors-solarized'
 call plug#end()
 
 
@@ -36,6 +36,7 @@ let g:LanguageClient_serverCommands = {
   \ 'javascript': ['javascript-typescript-stdio'],
   \ 'typescript': ['javascript-typescript-stdio'],
   \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+  \ 'haskell': ['hie-wrapper', '--lsp'],
   \ }
 
 let g:LanguageClient_diagnosticsDisplay = {
@@ -44,6 +45,8 @@ let g:LanguageClient_diagnosticsDisplay = {
   \3: {'name': 'Information', 'texthl': 'ALEInfo', 'signText': '●', 'signTexthl': 'ALEInfoSign',},
   \4: {'name': 'Hint', 'texthl': 'ALEInfo', 'signText': '●', 'signTexthl': 'ALEInfoSign',},
   \}
+
+let g:LanguageClient_rootMarkers = ['*.cabal', 'stack.yaml']
 
 " LanguageClient mappings
 nnoremap <silent> gm :call LanguageClient_contextMenu()<CR>
@@ -62,6 +65,14 @@ call deoplete#custom#source('LanguageClient',
             \ 'min_pattern_length',
             \ 2)
 
+let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
+
 " splits
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -71,6 +82,7 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
 
 syntax enable
+syntax on
 filetype plugin indent on
 
 set wildmode=longest:full
@@ -187,5 +199,5 @@ set statusline+=\ %2t\ %m                 " filename, filytype, modified or not
 set statusline+=%=\ %{LinterStatus()}     " linter warning and error count
 set statusline+=\ %-8{GitInfo()}          " git branch
 
-set background=light
-source ~/dev/dotfiles/themes/vim/ashes-light.vimrc
+source ~/dev/dotfiles/themes/vim/solarized-light.vimrc
+" source ~/dev/dotfiles/themes/vim/ashes-light.vimrc

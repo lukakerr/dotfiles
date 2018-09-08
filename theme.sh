@@ -1,4 +1,4 @@
-#! /bin/zsh
+#!/bin/zsh
 
 # Needs https://github.com/base16-builder/base16-builder to be installed
 

@@ -62,3 +62,5 @@ source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=7"
 bindkey '≥' autosuggest-accept   # option >
 bindkey '÷' autosuggest-execute  # option ?
+
+source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
