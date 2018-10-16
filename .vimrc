@@ -2,26 +2,30 @@
 call plug#begin('~/.vim/plugged')
   Plug 'airblade/vim-gitgutter'
   Plug 'jiangmiao/auto-pairs'
-  Plug 'kien/ctrlp.vim'
   Plug 'scrooloose/nerdtree'
-  Plug 'leafgarland/typescript-vim'
-  Plug 'kchmck/vim-coffee-script'
-  Plug 'tpope/vim-fugitive'
   Plug 'drmingdrmer/vim-syntax-markdown'
-  Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
   Plug 'scrooloose/nerdcommenter'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
   Plug 'tpope/vim-surround'
   Plug 'lervag/vimtex'
+  Plug 'tpope/vim-fugitive'
   Plug 'neovimhaskell/haskell-vim'
   Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'chriskempson/base16-vim',
+  Plug 'tikhomirov/vim-glsl',
   Plug 'altercation/vim-colors-solarized'
+  Plug 'drewtempelmeyer/palenight.vim'
+  if has('nvim')
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  else
+    Plug 'Shougo/deoplete.nvim'
+    Plug 'roxma/nvim-yarp'
+    Plug 'roxma/vim-hug-neovim-rpc'
+  endif
 call plug#end()
 
 
@@ -133,8 +137,8 @@ nmap <silent> <S-j> <Plug>(ale_next_wrap)
 let g:ale_sign_warning = '●'
 let g:ale_sign_error = '●'
 let g:ale_set_highlights = 0    " don't synax highlight errors/warnings
-highlight ALEErrorSign guifg=#f07171 guibg=clearar=1 ctermbg=1
-highlight ALEWarningSign guifg=#f29718 guibg=clearfg=2 ctermbg=2
+highlight ALEErrorSign guifg=#f07171 " guibg=clearar=1 ctermbg=1
+highlight ALEWarningSign guifg=#f29718 " guibg=clearfg=2 ctermbg=2
 
 " fzf
 map <S-p> :Files<CR>
@@ -199,5 +203,8 @@ set statusline+=\ %2t\ %m                 " filename, filytype, modified or not
 set statusline+=%=\ %{LinterStatus()}     " linter warning and error count
 set statusline+=\ %-8{GitInfo()}          " git branch
 
-source ~/dev/dotfiles/themes/vim/solarized-light.vimrc
+" source ~/dev/dotfiles/themes/vim/solarized-light.vimrc
 " source ~/dev/dotfiles/themes/vim/ashes-light.vimrc
+
+set background=dark
+colorscheme palenight

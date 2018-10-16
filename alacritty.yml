@@ -17,25 +17,41 @@ window:
   # Window dimensions in character columns and lines
   # (changes require restart)
   dimensions:
-    columns: 174
-    lines: 84
+    columns: 184
+    lines: 50
 
   # Adds this many blank pixels of padding around the window
   # Units are physical pixels; this is not DPI aware.
   # (change requires restart)
   padding:
-    y: 30
-    x: 30
+    top: 60
+    right: 30
+    bottom: 10
+    left: 30
 
   # Window decorations
-  # Setting this to false will result in window without borders and title bar.
-  decorations: buttonless
+  #
+  # Available values:
+  # - `full`: Window with title bar and title bar buttons
+  # - `none`: Window without title bar, rounded corners, or drop shadow
+  # - `transparent`: Window with title bar with transparent background and title
+  #   bar buttons
+  # - `buttonless`: Window with title bar with transparent background and no
+  #   title bar buttons
+  # Window decorations
+  #
+  # Values for `decorations`:
+  #     - full: Borders and title bar
+  #     - none: Neither borders nor title bar
+  #     - buttonless: Title bar, transparent background and title bar buttons
+  #     - transparent: Title bar, transparent background, but no title bar buttons
+  decorations: transparent
 
 # Display tabs using this many cells (changes require restart)
 tabspaces: 8
 
 # When true, bold text is drawn using the bright variant of colors.
-draw_bold_text_with_bright_colors: true
+draw_bold_text_with_bright_colors: false
 
 # Font configuration (changes require restart)
 font:
@@ -64,7 +80,7 @@ font:
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
   offset:
     x: 0
-    y: 0
+    y: 4
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increase the x offset to move the glyph to
@@ -106,28 +122,28 @@ colors:
     cursor: '0x999999'
 
   primary:
-    background: '0xfdf6e3'
-    foreground: '0x586e75'
+    background: '0xF3F4F5'
+    foreground: '0x565E65'
 
   normal:
-    black:   '0x002b36'
-    red:     '0xdc322f'
-    green:   '0x859900'
-    yellow:  '0xb58900'
-    blue:    '0x268bd2'
-    magenta: '0x6c71c4'
-    cyan:    '0x2aa198'
-    white:   '0x93a1a1'
+    black:   '0x1C2023'
+    red:     '0xC7AE95'
+    green:   '0x95C7AE'
+    yellow:  '0xAEC795'
+    blue:    '0xAE95C7'
+    magenta: '0xC795AE'
+    cyan:    '0x95AEC7'
+    white:   '0xC7CCD1'
 
   bright:
-    black:   '0x657b83'
-    red:     '0xcb4b16'
-    green:   '0x073642'
-    yellow:  '0x586e75'
-    blue:    '0x839496'
-    magenta: '0xeee8d5'
-    cyan:    '0xd33682'
-    white:   '0xfdf6e3'
+    black:   '0x747C84'
+    red:     '0xC7C795'
+    green:   '0x393F45'
+    yellow:  '0x565E65'
+    blue:    '0xADB3BA'
+    magenta: '0xDFE2E5'
+    cyan:    '0xC79595'
+    white:   '0xF3F4F5'
 
 
 # Visual Bell
@@ -209,7 +225,7 @@ hide_cursor_when_typing: false
 # - Block
 # - Underline
 # - Beam
-cursor_style: Block
+cursor_style: Underline
 
 # Whether the cursor should be a hollow block on window focus loss
 unfocused_hollow_cursor: true

@@ -39,6 +39,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 # Theme
 source ~/.zsh/themes/surreal.zsh-theme
+# source ~/.zsh/themes/palenight.zsh-theme
 # source ~/.zsh/themes/gruvbox.zsh-theme
 
 # Case insensitive autocompletion
