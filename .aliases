@@ -5,8 +5,8 @@ alias sb="source ~/.bash_profile"
 alias sz="source ~/.zshrc"
 alias j="jobs"
 alias n="nvim"
-alias gdb="gdb -quiet"
 alias cat="bat"
+alias vim="nvim"
 
 # chunkwm
 alias chunk_start="brew services start crisidev/chunkwm/chunkwm"
@@ -44,6 +44,8 @@ alias ghci="stack exec -- ghci"
 alias ghc="stack ghc"
 
 # Shortcuts
-alias u="cd ~/uni/UNSW/18s2"
+alias u="cd ~/uni/UNSW/19t2"
 alias d="cd ~/dev"
 alias o="cd ~/oss"
+alias g="cd ~/dev/go/src/github.com/lukakerr"
+alias lk="d; cd lukakerr.github.io"

@@ -33,9 +33,7 @@
       "globalReturn": true
     },
     "sourceType": "module"
-  }, 
-
-  "extends": "airbnb",
+  },
 
   "rules": {
     "arrow-parens": 0,

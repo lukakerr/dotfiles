@@ -1,4 +1,4 @@
-export PATH=$HOME/bin:/usr/local/bin:/$HOME/.local/bin:/usr/local/texlive/2018/bin/x86_64-darwin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:/$HOME/.local/bin:/usr/local/texlive/2018/bin/x86_64-darwin:$HOME/os161/tools/bin:$PATH
 
 source ~/.aliases
 source ~/.functions
@@ -28,14 +28,14 @@ export LSCOLORS=BxFxCxDxBxegedabagaced # For dark background
 
 # Go
 export GOROOT=/usr/local/opt/go/libexec
-export GOPATH=$HOME/.go
+export GOPATH=$HOME/.go:$HOME/dev/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 # Cargo
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # RVM
-# source ~/.rvm/scripts/rvm
+source ~/.rvm/scripts/rvm
 
 # Theme
 source ~/.zsh/themes/surreal.zsh-theme
@@ -60,7 +60,7 @@ HISTFILE=~/.zsh_history
 
 # zsh-autosuggestions
 source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=7"
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8"
 bindkey '≥' autosuggest-accept   # option >
 bindkey '÷' autosuggest-execute  # option ?
 

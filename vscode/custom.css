@@ -1,0 +1,19 @@
+.editor-actions .actions-container > .action-item > .action-label.icon:not(.textdiff-editor-action) {
+    display: none !important;
+}
+
+.composite.title .title-actions {
+  display: none !important;
+}
+
+.invisible.scrollbar.vertical.fade, .invisible.scrollbar.vertical.fade > .slider {
+  width: 4px !important;
+}
+
+.visible.scrollbar.vertical, .visible.scrollbar.vertical > .slider {
+  width: 4px !important;
+}
+
+.statusbar-item.right.__CUSTOM_CSS_JS_INDICATOR_CLS {
+  display: none !important;
+}

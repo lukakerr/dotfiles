@@ -15,7 +15,7 @@ RESET=$'\e[0;m'
 # Wrap prompt in precmd function
 # Only way that works to check if git repo after every entered command
 function precmd() {
-  PS1=%{$NORD5%}
+  PS1=%{$NORD1%}
   PS1+='~'
   PS1+=$(echo $(pwd) | sed -e "s%$HOME%%g" | perl -pe "s/(\w)[^\/]+\//\1\//g")
   # PS1+=${${:-/${(j:/:)${(M)${(s:/:)${(D)PWD:h}}#(|.)[^.]}}/${PWD:t}}//\/~/\~}
